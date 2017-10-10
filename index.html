@@ -1,0 +1,54 @@
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <style>
+        .quest {
+            border-bottom: 1px solid #aaa;
+            margin-bottom: 10px;
+        }
+        .questcolor {
+            background: #F6F6F6;
+        }
+        .questselectedcolor{
+            background: #ddd;
+        }
+        .answer {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .vote {
+            float: left;
+            text-align: center;
+            width: 21px;
+            margin-right: 20px;
+        }
+        .vote-up, .vote-down{
+            display: block;
+            margin: 0px auto;
+            width: 21px;
+            height: 25px;
+        }
+        .vote-up{
+            background-position: 0px 0px;
+            overflow: hidden;
+        }
+        .vote-down{
+            background-position: 0px -20px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body ng-init="content='test'">
+<div  ng-controller="QuestionController" >
+    <div ng-keydown="content = replaceSmile(content)" style="position:absolute; display:block;height: 200px; width: 500px;border: 1px solid grey; z-index:900; " id="editor" contenteditable="true">
+    </div>
+    <div ng-bind-html="content | unsafe" style="position:absolute; display:block;height: 200px; width: 500px;border: 1px solid grey" id="editor-place" contenteditable="false">
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script type="text/javascript">
+    var myApp = angular.module('myApp', []);
+</script>
+<script src="js/controllers/MessageController.js"></script>
+</body>
+</html>
